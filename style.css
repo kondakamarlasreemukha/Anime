@@ -1,0 +1,384 @@
+/* Global Reset & Base Styles */
+:root {
+    --bg-dark: #0a0a0a;
+    --bg-card: #141414;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --accent: #ff3e3e;
+    /* Generic Accent */
+    --accent-glow: rgba(255, 62, 62, 0.5);
+
+    /* Anime Specific Colors */
+    --color-one-piece: #ffcc00;
+    /* Luffy Yellow */
+    --color-demon-slayer: #20c296;
+    /* Tanjiro Green */
+    --color-aot: #8a2be2;
+    /* Dark Purple */
+    --color-tokyo: #d4af37;
+    /* Gold */
+    --color-death-note: #c0c0c0;
+    /* Silver/Black */
+    --color-haikyu: #ff8c00;
+    /* Orange */
+    --color-vinland: #8b4513;
+    /* Earthy/Leather */
+
+    --font-main: 'Outfit', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.3s;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header & Nav - FLEXBOX */
+.main-header {
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.header-content {
+    display: flex;
+    /* Flexbox */
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.highlight {
+    color: var(--accent);
+}
+
+.nav-list {
+    display: flex;
+    /* Flexbox */
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-list a {
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.nav-list a:hover {
+    color: var(--text-primary);
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px var(--accent-glow);
+}
+
+/* Hero Section - FLEXBOX */
+.hero {
+    height: 100vh;
+    display: flex;
+    /* Flexbox */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: radial-gradient(circle at center, #1a1a1a 0%, #000000 100%);
+    padding-top: 80px;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+
+.text-gradient {
+    background: linear-gradient(90deg, #ff3e3e, #ffcc00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+.hero-buttons {
+    display: flex;
+    /* Flexbox */
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn-secondary {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.btn-secondary:hover {
+    border-color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* Collections Grid - FLEXBOX Layout */
+.section-padding {
+    padding: 80px 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.collection-grid {
+    display: flex;
+    /* Flexbox Grid */
+    flex-wrap: wrap;
+    /* Allow wrapping */
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    background: var(--bg-card);
+    flex: 1 1 300px;
+    /* Grow, Shrink, Basis */
+    max-width: 350px;
+    height: 400px;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+
+    /* Flex content align */
+    display: flex;
+    align-items: flex-end;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+}
+
+.card-content {
+    position: relative;
+    z-index: 2;
+    padding: 30px;
+    width: 100%;
+}
+
+.card h3 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    font-style: italic;
+}
+
+.card p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.card-link {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    border-bottom: 2px solid transparent;
+}
+
+/* Unique Card Styles (Backgrounds) */
+
+.card-one-piece {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)), url('./assets/one_piece.png');
+    background-size: cover;
+    background-position: center;
+    border-top: 4px solid var(--color-one-piece);
+}
+
+.card-one-piece .card-link {
+    color: var(--color-one-piece);
+}
+
+.card-one-piece:hover .card-link {
+    border-bottom-color: var(--color-one-piece);
+}
+
+.card-demon-slayer {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)), url('./assets/demon_slayer.png');
+    background-size: cover;
+    background-position: center;
+    border-top: 4px solid var(--color-demon-slayer);
+}
+
+.card-demon-slayer .card-link {
+    color: var(--color-demon-slayer);
+}
+
+.card-aot {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)), url('./assets/aot.png');
+    background-size: cover;
+    background-position: center;
+    border-top: 4px solid var(--color-aot);
+}
+
+.card-aot .card-link {
+    color: var(--color-aot);
+}
+
+.card-haikyu {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)), url('./assets/haikyu.png');
+    background-size: cover;
+    background-position: center;
+    border-top: 4px solid var(--color-haikyu);
+}
+
+.card-haikyu .card-link {
+    color: var(--color-haikyu);
+}
+
+.card-death-note {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)), url('./assets/death_note.png');
+    background-size: cover;
+    background-position: center;
+    border-top: 4px solid var(--color-death-note);
+}
+
+.card-death-note .card-link {
+    color: var(--color-death-note);
+}
+
+.card-vinland {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)), url('./assets/vinland_saga.png');
+    background-size: cover;
+    background-position: center;
+    border-top: 4px solid var(--color-vinland);
+}
+
+.card-vinland .card-link {
+    color: var(--color-vinland);
+}
+
+.card-tokyo {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2)), url('./assets/tokyo_revengers.png');
+    background-size: cover;
+    background-position: center;
+    border-top: 4px solid var(--color-tokyo);
+}
+
+.card-tokyo .card-link {
+    color: var(--color-tokyo);
+}
+
+
+/* Footer - FLEXBOX */
+.footer-content {
+    display: flex;
+    /* Flexbox */
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.social-links {
+    display: flex;
+    /* Flexbox */
+    gap: 1.5rem;
+}
+
+.social-links a {
+    color: var(--text-secondary);
+}
+
+.social-links a:hover {
+    color: var(--text-primary);
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .header-content {
+        flex-direction: column;
+        height: auto;
+        padding: 20px 0;
+        gap: 20px;
+    }
+
+    .nav-list {
+        gap: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+}
